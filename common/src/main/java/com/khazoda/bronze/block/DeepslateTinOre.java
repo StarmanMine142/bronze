@@ -6,6 +6,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class DeepslateTinOre extends Block {
   public DeepslateTinOre() {
-    super(BlockBehaviour.Properties.of().strength(3.5f).sound(SoundType.METAL).requiresCorrectToolForDrops());
+    super(BlockBehaviour.Properties.of().strength(3.5f).sound(SoundType.DEEPSLATE).requiresCorrectToolForDrops());
   }
 }

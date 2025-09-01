@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "bronze:bronze_knife",
+      "required": false
+    }  ]
+}

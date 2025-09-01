@@ -1,11 +1,14 @@
 package com.khazoda.bronze.registry;
 
 import com.khazoda.bronze.BronzeCommon;
+import com.khazoda.bronze.platform.Services;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 
 import java.util.function.Supplier;
+
+import static com.khazoda.bronze.BronzeCommon.mod_loaded_farmersdelight;
 
 @SuppressWarnings("unused")
 public class TabRegistry {
@@ -21,6 +24,7 @@ public class TabRegistry {
             output.accept(MainRegistry.BRONZE_SHOVEL.get());
             output.accept(MainRegistry.BRONZE_HOE.get());
             output.accept(MainRegistry.SICKLE.get());
+            if(mod_loaded_farmersdelight) output.accept(MainRegistry.BRONZE_KNIFE.get());
             output.accept(MainRegistry.BRONZE_HELMET.get());
             output.accept(MainRegistry.BRONZE_CHESTPLATE.get());
             output.accept(MainRegistry.BRONZE_LEGGINGS.get());

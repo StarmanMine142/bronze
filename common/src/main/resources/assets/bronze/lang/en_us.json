@@ -56,5 +56,6 @@
   "advancement.bronze.got_cut_tin.title": "Who is Cut Tin Onions?",
   "advancement.bronze.got_cut_tin.description": "Obtain a Block of Cut Tin",
   "resource_pack.bronze.bronze_ctm.name": "Bronze Mod Connected Textures",
-  "resource_pack.bronze.bronze_ctm.description": "Adds connected textures support for some blocks (built-in: Bronze)"
+  "resource_pack.bronze.bronze_ctm.description": "Adds connected textures support for some blocks (built-in: Bronze)",
+  "item.bronze.bronze_knife": "Bronze Knife"
 }

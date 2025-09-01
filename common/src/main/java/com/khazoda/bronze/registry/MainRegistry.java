@@ -5,6 +5,7 @@ import com.khazoda.bronze.block.*;
 import com.khazoda.bronze.item.*;
 import com.khazoda.bronze.material.BronzeArmorMaterial;
 import com.khazoda.bronze.material.BronzeToolMaterial;
+import com.khazoda.bronze.platform.Services;
 import com.khazoda.bronze.registry.helper.Reggie;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 import java.util.function.Supplier;
 
+import static com.khazoda.bronze.BronzeCommon.mod_loaded_farmersdelight;
 import static com.khazoda.bronze.Constants.ID;
 import static net.minecraft.world.item.ArmorItem.Type.CHESTPLATE;
 
@@ -31,7 +33,7 @@ public class MainRegistry {
   public static final Supplier<Item> BRONZE_NUGGET = ITEM_REGISTRAR.register("bronze_nugget", BronzeNugget::new);
   public static final Supplier<Item> BRONZE_INGOT = ITEM_REGISTRAR.register("bronze_ingot", BronzeIngot::new);
   public static final Supplier<Item> BRONZE_HORSE_ARMOR = ITEM_REGISTRAR.register("bronze_horse_armor",
-      () -> new AnimalArmorItem(BronzeArmorMaterial.HOLDER, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties().stacksTo(1)));
+          () -> new AnimalArmorItem(BronzeArmorMaterial.HOLDER, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties().stacksTo(1)));
 
   public static final Supplier<TieredItem> BRONZE_SWORD = ITEM_REGISTRAR.register("bronze_sword", () -> new BronzeSword(BronzeToolMaterial.INSTANCE));
   public static final Supplier<TieredItem> BRONZE_AXE = ITEM_REGISTRAR.register("bronze_axe", () -> new BronzeAxe(BronzeToolMaterial.INSTANCE));
@@ -41,13 +43,16 @@ public class MainRegistry {
   public static final Supplier<TieredItem> SICKLE = ITEM_REGISTRAR.register("bronze_sickle", () -> new Sickle(BronzeToolMaterial.INSTANCE, new Item.Properties().stacksTo(1)));
 
   public static final Supplier<Item> BRONZE_HELMET = ITEM_REGISTRAR.register("bronze_helmet",
-      () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(18))));
+          () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(18))));
   public static final Supplier<Item> BRONZE_CHESTPLATE = ITEM_REGISTRAR.register("bronze_chestplate",
-      () -> new ArmorItem(BronzeArmorMaterial.HOLDER, CHESTPLATE, new Item.Properties().durability(CHESTPLATE.getDurability(18))));
+          () -> new ArmorItem(BronzeArmorMaterial.HOLDER, CHESTPLATE, new Item.Properties().durability(CHESTPLATE.getDurability(18))));
   public static final Supplier<Item> BRONZE_LEGGINGS = ITEM_REGISTRAR.register("bronze_leggings",
-      () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(18))));
+          () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.LEGGINGS, new Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(18))));
   public static final Supplier<Item> BRONZE_BOOTS = ITEM_REGISTRAR.register("bronze_boots",
-      () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(18))));
+          () -> new ArmorItem(BronzeArmorMaterial.HOLDER, ArmorItem.Type.BOOTS, new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(18))));
+
+  /* Farmers Delight Knife Compatibility */
+  public static Supplier<Item> BRONZE_KNIFE;
 
   /* ==========[ Block Registration ]========== */
   public static final Supplier<Block> TIN_BLOCK = BLOCK_REGISTRAR.register("tin_block", TinBlock::new);
@@ -86,6 +91,8 @@ public class MainRegistry {
   public static final ResourceKey<PlacedFeature> TIN_ORE_SMALL_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ID("ore_tin_small"));
 
   public static void init() {
+    if (mod_loaded_farmersdelight) BRONZE_KNIFE = ITEM_REGISTRAR.register("bronze_knife",
+            () -> new BronzeKnifeFarmersDelight(BronzeToolMaterial.INSTANCE));
 
   }
 
