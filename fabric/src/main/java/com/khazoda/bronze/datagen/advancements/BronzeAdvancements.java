@@ -41,6 +41,7 @@ public class BronzeAdvancements implements Consumer<Consumer<AdvancementHolder>>
         )
         .addCriterion("got_tin_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.TIN_INGOT.get()))
         .rewards(AdvancementRewards.Builder.recipe(ID("crafting/tin_block"))
+            .addRecipe(ID("crafting/tin_nugget"))
             .addRecipe(ID("stonecutting/cut_tin"))
             .addRecipe(ID("stonecutting/tin_framed_glass"))
             .addRecipe(ID("stonecutting/chiseled_tin_from_tin_block"))
@@ -234,5 +235,13 @@ public class BronzeAdvancements implements Consumer<Consumer<AdvancementHolder>>
         .build(ID("recipes/got_bronze_nuggets"));
 
     advancementConsumer.accept(unlockBronzeIngotFromBronzeNugget);
+
+    AdvancementHolder unlockTinIngotFromTinNugget = Advancement.Builder.recipeAdvancement()
+        .parent(ResourceLocation.withDefaultNamespace("recipes/root"))
+        .addCriterion("got_tin_nuggets", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.TIN_NUGGET.get()))
+        .rewards(AdvancementRewards.Builder.recipe(ID("crafting/tin_ingot_from_nuggets")))
+        .build(ID("recipes/got_tin_nuggets"));
+
+    advancementConsumer.accept(unlockTinIngotFromTinNugget);
   }
 }

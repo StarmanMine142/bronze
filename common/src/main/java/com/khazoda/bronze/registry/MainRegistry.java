@@ -30,6 +30,7 @@ public class MainRegistry {
   public static final Supplier<Item> RAW_TIN = ITEM_REGISTRAR.register("raw_tin", RawTin::new);
   public static final Supplier<Item> TIN_INGOT = ITEM_REGISTRAR.register("tin_ingot", TinIngot::new);
   public static final Supplier<Item> BRONZE_BLEND = ITEM_REGISTRAR.register("bronze_blend", BronzeBlend::new);
+  public static final Supplier<Item> TIN_NUGGET = ITEM_REGISTRAR.register("tin_nugget", TinNugget::new);
   public static final Supplier<Item> BRONZE_NUGGET = ITEM_REGISTRAR.register("bronze_nugget", BronzeNugget::new);
   public static final Supplier<Item> BRONZE_INGOT = ITEM_REGISTRAR.register("bronze_ingot", BronzeIngot::new);
   public static final Supplier<Item> BRONZE_HORSE_ARMOR = ITEM_REGISTRAR.register("bronze_horse_armor",

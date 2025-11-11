@@ -38,6 +38,7 @@ public class TabRegistry {
             output.accept(MainRegistry.RAW_TIN.get());
             output.accept(MainRegistry.BRONZE_BLEND.get());
             output.accept(MainRegistry.TIN_INGOT.get());
+            output.accept(MainRegistry.TIN_NUGGET.get());
             output.accept(MainRegistry.BRONZE_INGOT.get());
             output.accept(MainRegistry.BRONZE_NUGGET.get());
             output.accept(MainRegistry.BRONZE_HORSE_ARMOR.get());

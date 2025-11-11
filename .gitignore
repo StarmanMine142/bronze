@@ -23,4 +23,4 @@ eclipse
 run
 runs
 
-**/src/*/generated/.cache
+**/src/**/generated/.cache
